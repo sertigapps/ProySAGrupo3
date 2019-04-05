@@ -59,10 +59,27 @@ proyecto es que se desarrolle el ESB.
 2. AMQP para colas
 ### Operaciones
 #### Tiendas
+1. Realizar suscripcion de tienda a bodega
+  a. Nombre de la funcion: suscribirse
+  b. Explicacion: Una tienda, con su propio id, podra suscribirse a una bodega del mismo o diferente pais para llevar a cabo los despachos al momento de que se lleve a cabo una compra.
+  c. Parametros de entrada:
+    - Codigo de tienda (entero)
+    - Codigo de bodega (entero)
+  d. Respuesta: la respuesta sera de tipo booleano, true si se pudo realizar la suscripcion y false si no.
+2. Solicitar despacho
+  a. Nombre de la funcion:
+  b. Explicacion:
+  c. Parametros de entrada:
+  d. Respuesta:
+3. Consultar tiempo de entrega
+  a. Nombre de la funcion:
+  b. Explicacion:
+  c. Parametros de entrada:
+  d. Respuesta:
 #### PIM
 #### Bodegas
 ### Autenticacion
 #### Funciones afectadas
 #### Protocolo de Autenticacion
 Propongo JWT por versatilidad y disponibilidad en varios lenguajes
-
+#### Roles y niveles de usuario a crearse
