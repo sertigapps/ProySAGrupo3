@@ -37,32 +37,32 @@ Descartada no por razones tecnicas sino debido a restricciones del proyecto ya q
 mandos de IT proveen de todo lo necesario para implementar y desplegar los ESB en cada HUB, lo cual es descartado ya que el enfoque del
 proyecto es que se desarrolle el ESB.
 
-##Definicion de Servicios
-###Servicios Web de Entidades
-####Tiendas
+## Definicion de Servicios
+### Servicios Web de Entidades
+#### Tiendas
 1. Subscribirse a Bodega
 2. Solicitar Despacho
 3. Consultar Tiempo de Entrega
-####PIM
+#### PIM
 1. Obtener Catalogo Completo
 2. Obtener Productos Descontinuados
 3. Actualizar Precios basados en moneda local
 4. Obtener Lista por Categorias
-####Bodegas
+#### Bodegas
 1. Obtener Inventario Real
 2. Tiempo de Entrega
 3. Registrar Subscripcion
 4. Recibir Solicitud de Despacho
 5. Enviar Inventario
-###Protocolos a Utilizar
+### Protocolos a Utilizar
 1. Propongo REST para los servicios 
 2. AMQP para colas
-###Operaciones
-####Tiendas
-####PIM
-####Bodegas
-###Autenticacion
-####Funciones afectadas
+### Operaciones
+#### Tiendas
+#### PIM
+#### Bodegas
+### Autenticacion
+#### Funciones afectadas
 #### Protocolo de Autenticacion
 Propongo JWT por versatilidad y disponibilidad en varios lenguajes
 
