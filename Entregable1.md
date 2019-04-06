@@ -75,10 +75,12 @@ proyecto es que se desarrolle el ESB.
     - Cantidad (entero)
   - Respuesta: la respuesta sera el tiempo en dias que se tardara en realizar el despacho a la tienda.
 3. Consultar tiempo de entrega
-  - Nombre de la funcion:
-  - Explicacion:
+  - Nombre de la funcion: consultar_tiempo_entrega
+  - Explicacion: La tienda, al realizar un pedido podrá consultar el tiempo de entrega a las bodegas en las que esta subscrito. Verificara cual es el tiempo de entrega menor entre las bodegas en base a la ubicacion de la tienda para retornar un resultado.
   - Parametros de entrada:
-  - Respuesta:
+	- Fecha de realizacion del pedido (tipo fecha)
+	- Codigo de tienda (tentativamente de tipo entero)
+  - Respuesta: la respuesta sera el tiempo en días en que se entregará el producto (tipo entero)
 #### PIM
 1. Obtener catálogo completo 
   - Nombre de la función: 
