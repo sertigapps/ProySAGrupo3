@@ -45,9 +45,10 @@ proyecto es que se desarrolle el ESB.
 3. Consultar Tiempo de Entrega
 #### PIM
 1. Obtener Catalogo Completo
-2. Obtener Productos Descontinuados
-3. Actualizar Precios basados en moneda local
-4. Obtener Lista por Categorias
+2. Selección de categorías y productos a vender
+3. Obtener Productos Descontinuados
+4. Actualizar Precios basados en moneda local
+5. Obtener Lista por Categorias
 #### Bodegas
 1. Obtener Inventario Real
 2. Tiempo de Entrega
@@ -76,58 +77,79 @@ proyecto es que se desarrolle el ESB.
   - Respuesta: la respuesta sera el tiempo en dias que se tardara en realizar el despacho a la tienda.
 3. Consultar tiempo de entrega
   - Nombre de la funcion: consultar_tiempo_entrega
-  - Explicacion: La tienda, al realizar un pedido podrá consultar el tiempo de entrega a las bodegas en las que esta subscrito. Verificara cual es el tiempo de entrega menor entre las bodegas en base a la ubicacion de la tienda para retornar un resultado.
+  - Explicacion: La tienda, al realizar un pedido podrá consultar el tiempo de entrega a las bodegas en las que esta subscrito.
   - Parametros de entrada:
 	- Fecha de realizacion del pedido (tipo fecha)
 	- Codigo de tienda (tentativamente de tipo entero)
   - Respuesta: la respuesta sera el tiempo en días en que se entregará el producto (tipo entero)
 #### PIM
 1. Obtener catálogo completo 
-  - Nombre de la función: 
-  - Explicación:
+  - Nombre de la función: obtener_catalogo
+  - Explicación: Esta función se utilizará para obtener el catalago completo existente del PIM, perdo devolviendo únicamente los siguientes datos: nombre,SKU y categorias de cada producto.
+  - Parámetros de entrada: 
+	- No posee parametros de entrada
+  - Respuesta: Se retornará un string que contiene el catálogo de productos en formato JSON.
+2. Selección de categorías y productos a vender
+  - Nombre de la función: seleccionar_productos
+  - Explicación: A través de esta función las tiendas podrán seleccionar las categrías y productos que se venderán .
   - Parámetros de entrada:
-  - Respuesta
-2. Obtener productos descontinuados
-  - Nombre de la función: 
-  - Explicación:
+	- Codigo de tienda (tentativamente de tipo entero)
+	- Categorias seleccionadas (tipo string en formato JSON con las categorías seleccionadas)
+  - Respuesta: Se retornará la porción del catálogo de productos según las categorías seleccionadas en formato JSON.
+3. Obtener productos descontinuados
+  - Nombre de la función: descontinuar_productos 
+  - Explicación: Se desligarán de las tiendas los productos que han sido descontinuados por el PIM y se le colocara un estado de descontinuado al producto.
   - Parámetros de entrada:
-  - Respuesta
-3. Actualizar precios basados en moneda local
-  - Nombre de la función: 
-  - Explicación:
+	- Productos descontinuados (tipo string en formato JSON con los productos descontinuados)
+  - Respuesta: El estado de la operación.
+4. Actualizar precios basados en moneda local
+  - Nombre de la función: actualizacion_precios
+  - Explicación: Con esta función se podrán actualizar los precios reales en base a la moneda local de cada tienda. No será necesario indicar la moneda o la ubicación de la tienda debido a que estos datos pueden obtenerse por medio del codigo de la tienda.
   - Parámetros de entrada:
-  - Respuesta
-4. Obtener lista por categorias
-  - Nombre de la función: 
-  - Explicación:
+	- Codigo de tienda (tentativamente de tipo entero)
+  - Respuesta: Un string que contine formato JSON que tiene la información del precio de los productos en la moneda local.
+5. Obtener lista por categorias
+  - Nombre de la función: obtener_lista_categorias
+  - Explicación: Por medio de esta función se obtendrán los datos de cada producto en el catálogo, clasificados por categorías. Los precios serán mostrados en la moneda local. No será necesario enviar las categorías seleccionadas como parámetro debido a que estas pueden obtenerse por medio del código de la tienda.
   - Parámetros de entrada:
-  - Respuesta
+	- Codigo de tienda (tentativamente de tipo entero)
+  - Respuesta: Se retornará un string en formato JSON con la porción del catálogo seleccionado, incluyendo el precio real de los productos en la moneda local.
 #### Bodegas
 1. Obtener inventario real
-  - Nombre de la función: 
-  - Explicación:
+  - Nombre de la función: obtener_inventario
+  - Explicación: Se obtendrá de la base de datos de la bodega el inventario real del producto enviado como parámetro antes de realizar una compra.
   - Parámetros de entrada:
-  - Respuesta
+	- Codigo de tienda (tentativamente de tipo entero)
+	- SKU del Producto (tipo entero)
+  - Respuesta: Se retornará el número de unidades existentes del producto solicitado.
 2. Tiempo de entrega
-   - Nombre de la función: 
-  - Explicación:
-  - Parámetros de entrada:
-  - Respuesta
+  - Nombre de la función: calcular_tiempo_entrega  
+  - Explicación: Recibirá la consulta de la tienda del tiempo de entrega. Verificara cual es el tiempo de entrega menor entre las bodegas en base a la ubicacion de la tienda para retornar un resultado.
+  - Parámetros de entrada: 
+	- Codigo de tienda (tentativamente de tipo entero)
+  - Respuesta: Se retornará un entero que indique la cantidad de días que demorará la entrega.
 3. Registrar subscripcion
-    - Nombre de la función: 
-  - Explicación:
+  - Nombre de la función: registrar_suscripción 
+  - Explicación: Recibirá la solicitud de sucripción de una tienda a la bodega y realizará el registro en la respectiva base de datos.
   - Parámetros de entrada:
-  - Respuesta
+	- Codigo de tienda (tentativamente de tipo entero)
+	- Codigo de bodega (tentativamente de tipo entero)
+  - Respuesta: La respuesta sera de tipo booleano, true si se pudo realizar la suscripcion y false si no.
 4. Recibir solicitud de despacho
-  - Nombre de la función: 
-  - Explicación:
+  - Nombre de la función: procesar_despacho 
+  - Explicación: A través de esta función la bodega realizará el registro de la compra realizada en la base de datos. La bodega que atenderá el pedido será la calculada según el inventario existente y el tiempo de entrega.
   - Parámetros de entrada:
-  - Respuesta
+	- Codigo de tienda (tentativamente de tipo entero)
+    - SKU (tentativamente de tipo entero)
+    - Cantidad (entero)
+  - Respuesta: La respuesta sera el tiempo en dias que se tardara en realizar el despacho a la tienda. Si no se comple con las condiciones de la solicitud se retornará un -1 indicando que la solicitud del despacho no ha podido realizarse.
 5. Enviar inventario
-  - Nombre de la función: 
-  - Explicación:
+  - Nombre de la función: enviar_inventario 
+  - Explicación: Se realizará el envió del inventario existente de determinado producto solicitado por la tienda para verificar existencias.
   - Parámetros de entrada:
-  - Respuesta
+	- Codigo de tienda(tentativamente de tipo entero)
+	- SKU del producto (entero)
+  - Respuesta: Se retornará un entero que contendrá el número de unidades existentes del producto enviado como parámetro.
 ### Autenticación
 #### Funciones afectadas
 #### Protocolo de Autenticación
