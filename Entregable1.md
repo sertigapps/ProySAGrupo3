@@ -11,7 +11,7 @@ en apoyo a los objetivos globales de la empresa, de igual forma se presentan fun
 control cental o regional.
 
 ## Topología Propuesta
-[topologia] https://s3.amazonaws.com/renato1689/Topologia.jpg "Topologia"
+![topologia](https://s3.amazonaws.com/renato1689/Topologia.jpg)
 
 ### Single Logical ESB (Descartada)
 Consideramos no ser adecuada ya que en el conglomerado cada tienda implementara su ERP Y Tienda en linea de forma individual
