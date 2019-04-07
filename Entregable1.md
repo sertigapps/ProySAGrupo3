@@ -10,8 +10,12 @@ Esto basado en que el conglomerado se organiza geograficamente y cada región op
 en apoyo a los objetivos globales de la empresa, de igual forma se presentan funciones de integración, procesos y capacidades bajo el 
 control cental o regional.
 
+<<<<<<< Updated upstream
 ## Topología Propuesta
 ![topologia](https://s3.amazonaws.com/renato1689/Topologia.jpg)
+=======
+##Topologia Propuesta
+>>>>>>> Stashed changes
 
 ### Single Logical ESB (Descartada)
 Consideramos no ser adecuada ya que en el conglomerado cada tienda implementara su ERP Y Tienda en linea de forma individual
@@ -175,7 +179,21 @@ De los servicios web especificados anteriormente, se necesita llevar el control 
 Ademas de los servicios especificados, tambien se deberian de autenticar los servicios que se incluyan en la parte de login de un cliente o empleado. Esto para mantener las claves de acceso seguras a infiltradores.
 
 #### Protocolo de Autenticación
-Propongo JWT por versatilidad y disponibilidad en varios lenguajes
+#####¿Qué protocolo se va a utilizar?
+El protocolo a utilizar será JWT (JSON Web Token) ya que es útil para dos de los escenarios más comunes a darse en el sistema: autenticación e intercambio de información
+  - Autenticación: Es el escenario más común para usar JWT. Una vez el usuario haya iniciado sesión, cada solicitud subsiguiente incluirá el JWT, lo que permitirá acceder a las rutas, los servicios y los recursos que se permiten con ese token. 
+  - Intercambio de información: los tokens web de JSON son una buena forma de transmitir información entre los servicios. Debido a que estos pueden firmarse, por ejemplo, mediante el uso de claves públicas/privadas, se puede estar seguro de que los remitentes son quienes dicen ser. Además, como la firma se calcula utilizando el encabezado y la carga útil, se puede asegurar que el contenido no haya sido manipulado. 
+#####¿Cómo funciona JWT?
+![alt text](diagrama9.png)
+1. La aplicación o cliente solicita autorización del servidor de autorización. 
+2. Cuando la autorización es concedida, el servidor retorna un token de acceso a la aplicación. 
+3. La aplicación utiliza este token de acceso para obtener acceso a recursos protegidos (como una API) 
+#####¿Por que se utilizara JWT? 
+- JSON es menos detallado que XML, cuando se codifica, su tamaño es más pequeño, lo que hace que JWt sea más compacto que otros protocolos como SAML.
+- En cuanto a seguridad, los tokens JWT y SAML pueden usar un par de claves públicas/privadas en forma de un certificado X.509 para la firma. 
+- Los analizadores JSON son comunes en la mayoría de los lenguajes de programación porque no se asignan directamente a los objetos.
+- En cuanto al uso, JWT se utiliza a escala de Internet. Esto resalta la facilidad del procesamiento del lado del cliente del token web JSON en múltiples plataformas, especialmente en dispositivos móviles. 
+ 
 #### Roles y niveles de usuario a crearse
 Los roles y niveles de usuario a crearse seran los siguientes:
 - Administrador: El administrador poseera los permisos para poder modificar y acceder a los datos del PIM.
