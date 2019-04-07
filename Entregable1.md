@@ -64,7 +64,9 @@ proyecto es que se desarrolle el ESB.
 3. Registrar Subscripcion
 4. Recibir Solicitud de Despacho
 5. Enviar Inventario
+
 La secuencia de operaciones de los servicios de bodega se encuentran ilustrados en los diagramas de secuencia de Tiendas.
+
 ### Protocolos a Utilizar
 1. Propongo REST para los servicios 
 2. AMQP para colas
@@ -98,32 +100,32 @@ La secuencia de operaciones de los servicios de bodega se encuentran ilustrados 
   - Explicación: Esta función se utilizará para obtener el catalago completo existente del PIM, perdo devolviendo únicamente los siguientes datos: nombre,SKU y categorias de cada producto.
   - Parámetros de entrada: 
 	- No posee parametros de entrada
-  - Respuesta: Se retornará un string que contiene el catálogo de productos en formato JSON.
+  - Respuesta: Se retornará un arreglo que contiene el catálogo de productos.
 2. Selección de categorías y productos a vender
   - Nombre de la función: seleccionar_productos
   - Explicación: A través de esta función las tiendas podrán seleccionar las categrías y productos que se venderán .
   - Parámetros de entrada:
 	- Codigo de tienda (tentativamente de tipo entero)
-	- Categorias seleccionadas (tipo string en formato JSON con las categorías seleccionadas)
-  - Respuesta: Se retornará la porción del catálogo de productos según las categorías seleccionadas en formato JSON.
+	- Categorias seleccionadas (un arrelgo con las categorías seleccionadas)
+  - Respuesta: Se retornará la porción del catálogo de productos según las categorías seleccionadas en un arreglo.
 3. Obtener productos descontinuados
   - Nombre de la función: descontinuar_productos 
   - Explicación: Se desligarán de las tiendas los productos que han sido descontinuados por el PIM y se le colocara un estado de descontinuado al producto.
   - Parámetros de entrada:
-	- Productos descontinuados (tipo string en formato JSON con los productos descontinuados)
+	- Productos descontinuados (un arreglo con los productos descontinuados)
   - Respuesta: El estado de la operación.
 4. Actualizar precios basados en moneda local
   - Nombre de la función: actualizacion_precios
   - Explicación: Con esta función se podrán actualizar los precios reales en base a la moneda local de cada tienda. No será necesario indicar la moneda o la ubicación de la tienda debido a que estos datos pueden obtenerse por medio del codigo de la tienda.
   - Parámetros de entrada:
 	- Codigo de tienda (tentativamente de tipo entero)
-  - Respuesta: Un string que contine formato JSON que tiene la información del precio de los productos en la moneda local.
+  - Respuesta: Un arreglo que tiene la información del precio de los productos en la moneda local.
 5. Obtener lista por categorias
   - Nombre de la función: obtener_lista_categorias
   - Explicación: Por medio de esta función se obtendrán los datos de cada producto en el catálogo, clasificados por categorías. Los precios serán mostrados en la moneda local. No será necesario enviar las categorías seleccionadas como parámetro debido a que estas pueden obtenerse por medio del código de la tienda.
   - Parámetros de entrada:
 	- Codigo de tienda (tentativamente de tipo entero)
-  - Respuesta: Se retornará un string en formato JSON con la porción del catálogo seleccionado, incluyendo el precio real de los productos en la moneda local.
+  - Respuesta: Se retornará un arreglo con la porción del catálogo seleccionado, incluyendo el precio real de los productos en la moneda local.
 #### Bodegas
 1. Obtener inventario real
   - Nombre de la función: obtener_inventario
