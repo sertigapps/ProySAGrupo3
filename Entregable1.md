@@ -41,14 +41,22 @@ proyecto es que se desarrolle el ESB.
 ### Servicios Web de Entidades
 #### Tiendas
 1. Subscribirse a Bodega
+![alt text](diagrama1.png)
 2. Solicitar Despacho
+![alt text](diagrama2.png)
 3. Consultar Tiempo de Entrega
+![alt text](diagrama3.png)
 #### PIM
 1. Obtener Catalogo Completo
+![alt text](diagrama4.png)
 2. Selección de categorías y productos a vender
+![alt text](diagrama5.png)
 3. Obtener Productos Descontinuados
+![alt text](diagrama6.png)
 4. Actualizar Precios basados en moneda local
+![alt text](diagrama7.png)
 5. Obtener Lista por Categorias
+![alt text](diagrama8.png)
 #### Bodegas
 1. Obtener Inventario Real
 2. Tiempo de Entrega
