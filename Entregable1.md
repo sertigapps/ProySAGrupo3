@@ -152,6 +152,16 @@ proyecto es que se desarrolle el ESB.
   - Respuesta: Se retornará un entero que contendrá el número de unidades existentes del producto enviado como parámetro.
 ### Autenticación
 #### Funciones afectadas
+De los servicios web especificados anteriormente, se necesita llevar el control de la autenticacion para proteger la informacion privilegiada o privada de la empresa propietaria del proyecto. No todos los servicios web deben de llevar proceso de autenticacion, pero los que si son los siguientes:
+- Suscribirse a bodega, solo una tienda puede realizar la suscripcion a una bodega.
+- Solicitar despacho, solo una tienda puede solicitar producto a bodega para despachar a un cliente.
+- Seleccion de categorias y productos a vender, solo un administrador o gerente de tienda sera capaz de elegir que categorias mostrar a los clientes y que productos pueden vender.
+- Actualizar precios basados en moneda local, solo el administrador de la PIM puede llevar a cabo las modificaciones correspondientes.
+- Registrar suscripcion, solo un usuario de bodega puede llevar a cabo tal operacion.
+- Recibir solicitud de despacho, la bodega es la unica entidad capaz de despachar a la tienda.
+
+Ademas de los servicios especificados, tambien se deberian de autenticar los servicios que se incluyan en la parte de login de un cliente o empleado. Esto para mantener las claves de acceso seguras a infiltradores.
+
 #### Protocolo de Autenticación
 Propongo JWT por versatilidad y disponibilidad en varios lenguajes
 #### Roles y niveles de usuario a crearse
