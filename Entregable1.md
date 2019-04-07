@@ -42,20 +42,29 @@ proyecto es que se desarrolle el ESB.
 ### Servicios Web de Entidades
 #### Tiendas
 1. Subscribirse a Bodega
+	- ![alt text](diagrama1.png)
 2. Solicitar Despacho
+	- ![alt text](diagrama2.png)
 3. Consultar Tiempo de Entrega
+	- ![alt text](diagrama3.png)
 #### PIM
 1. Obtener Catalogo Completo
+	- ![alt text](diagrama4.png)
 2. Selección de categorías y productos a vender
+	- ![alt text](diagrama5.png)
 3. Obtener Productos Descontinuados
+	- ![alt text](diagrama6.png)
 4. Actualizar Precios basados en moneda local
+	- ![alt text](diagrama7.png)
 5. Obtener Lista por Categorias
+	- ![alt text](diagrama8.png)
 #### Bodegas
 1. Obtener Inventario Real
 2. Tiempo de Entrega
 3. Registrar Subscripcion
 4. Recibir Solicitud de Despacho
 5. Enviar Inventario
+La secuencia de operaciones de los servicios de bodega se encuentran ilustrados en los diagramas de secuencia de Tiendas.
 ### Protocolos a Utilizar
 1. Propongo REST para los servicios 
 2. AMQP para colas
@@ -166,4 +175,14 @@ Ademas de los servicios especificados, tambien se deberian de autenticar los ser
 #### Protocolo de Autenticación
 Propongo JWT por versatilidad y disponibilidad en varios lenguajes
 #### Roles y niveles de usuario a crearse
-
+Los roles y niveles de usuario a crearse seran los siguientes:
+- Administrador: El administrador poseera los permisos para poder modificar y acceder a los datos del PIM.
+- Administrador de tienda: El administrador de la tienda podra gestionar los productos que puede poner en venta del catalogo que el PIM le ofrezca y administrar los datos de la tienda, asi como suscribir su tienda a una bodega. 
+- Tiendero: EL tiendero funcionara como otro cliente mas, pero podra hacer solicitud de despacho a las bodegas.
+- Administrador de bodega: El administrador de bodega podra registrar tiendas.
+- Bodeguero: Este rol lo tendran los usuarios que pueden ver las solicitudes de despacho para ser despachadas.
+- Cliente: El cliente es la capa mas inferior y este podra ver:
+  - El catalogo de productos.
+  - Realizar compra de productos.
+  - Ver el tiempo de despacho.
+  - Otras operaciones que involucren en el pago y compra de productos.
