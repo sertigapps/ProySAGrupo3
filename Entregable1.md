@@ -10,12 +10,8 @@ Esto basado en que el conglomerado se organiza geograficamente y cada región op
 en apoyo a los objetivos globales de la empresa, de igual forma se presentan funciones de integración, procesos y capacidades bajo el 
 control cental o regional.
 
-<<<<<<< Updated upstream
 ## Topología Propuesta
 ![topologia](https://s3.amazonaws.com/renato1689/Topologia.jpg)
-=======
-##Topologia Propuesta
->>>>>>> Stashed changes
 
 ### Single Logical ESB (Descartada)
 Consideramos no ser adecuada ya que en el conglomerado cada tienda implementara su ERP Y Tienda en linea de forma individual
