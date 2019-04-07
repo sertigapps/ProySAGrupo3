@@ -165,4 +165,14 @@ Ademas de los servicios especificados, tambien se deberian de autenticar los ser
 #### Protocolo de Autenticación
 Propongo JWT por versatilidad y disponibilidad en varios lenguajes
 #### Roles y niveles de usuario a crearse
-
+Los roles y niveles de usuario a crearse seran los siguientes:
+- Administrador: El administrador poseera los permisos para poder modificar y acceder a los datos del PIM.
+- Administrador de tienda: El administrador de la tienda podra gestionar los productos que puede poner en venta del catalogo que el PIM le ofrezca y administrar los datos de la tienda, asi como suscribir su tienda a una bodega. 
+- Tiendero: EL tiendero funcionara como otro cliente mas, pero podra hacer solicitud de despacho a las bodegas.
+- Administrador de bodega: El administrador de bodega podra registrar tiendas.
+- Bodeguero: Este rol lo tendran los usuarios que pueden ver las solicitudes de despacho para ser despachadas.
+- Cliente: El cliente es la capa mas inferior y este podra ver:
+  - El catalogo de productos.
+  - Realizar compra de productos.
+  - Ver el tiempo de despacho.
+  - Otras operaciones que involucren en el pago y compra de productos.
