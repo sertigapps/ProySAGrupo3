@@ -14,7 +14,7 @@ CREATE TABLE Bodega(
 	cod_bodega INT AUTO_INCREMENT,
 	nombre VARCHAR(50) NOT NULL,
 	cod_tienda INT NOT NULL,
-	PRIMARY KEY(codigo),
+	PRIMARY KEY(cod_bodega),
 	FOREIGN KEY (cod_tienda)
       REFERENCES Tienda (cod_tienda)
 );
@@ -28,7 +28,7 @@ CREATE TABLE Producto(
 	activo INT NOT NULL,
 	stock INT NULL,
 	cod_tienda INT NOT NULL,
-	PRIMARY KEY(SKU)
+	PRIMARY KEY(SKU),
 	FOREIGN KEY (cod_tienda)
 		REFERENCES Tienda (cod_tienda)
 );
@@ -53,7 +53,7 @@ CREATE TABLE Imagen(
 	cod_imagen INT AUTO_INCREMENT,
 	ruta TEXT NOT NULL,
 	cod_producto INT NOT NULL,
-	PRIMARY KEY (codigo),
+	PRIMARY KEY (cod_imagen),
 	FOREIGN KEY (cod_producto)
 		REFERENCES Producto (SKU)
 );
