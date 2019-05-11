@@ -1,0 +1,14 @@
+[
+    {
+        "servidor":"tienda1.compania.com",
+        "rol":"tienda"
+    },
+    {
+        "servidor":"tienda2.compania.com",
+        "rol":"tienda"
+    },
+    {
+        "servidor":"tienda2.compania.com",
+        "rol":"tienda"
+    }
+]

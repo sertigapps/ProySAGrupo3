@@ -1,0 +1,22 @@
+{
+  "servers": [
+    {
+      "servidor": "tienda1.compania.com",
+      "rol": "tienda",
+      "client_secret": "tc9h0fou7h9u2vfbmytuo",
+      "id": 1
+    },
+    {
+      "servidor": "tienda2.compania.com",
+      "rol": "tienda",
+      "client_secret": "x90rtb9zvbf2h4prvqk5i7",
+      "id": 2
+    },
+    {
+      "servidor": "tienda2.compania.com",
+      "rol": "tienda",
+      "client_secret": "55ttty35hfu0jpw9jskhhq8",
+      "id": 3
+    }
+  ]
+}

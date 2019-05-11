@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  auth:
+    build: 
+      context : .
+      dockerfile : ./auth/Dockerfile
+    volumes:
+      - type: bind
+        source: ./server
+        target: /opt/app/server
+    ports:
+      - "8086:80"
+  bodega1:
+    build: 
+      context : .
+      dockerfile : ./bodega/Dockerfile
+    volumes:
+      - type: bind
+        source: ./server
+        target: /opt/app/server
+    ports:
+      - "8083:80"

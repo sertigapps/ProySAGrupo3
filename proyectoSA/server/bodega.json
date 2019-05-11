@@ -1,0 +1,63 @@
+{
+  "despachos": [
+  ],
+  "solicitudes": [
+  ],
+  "despachosInvalidos": [
+  ],
+  "productos": [
+    {
+      "sku": "000000",
+      "inventario": 14850
+    },
+    {
+      "sku": "000002",
+      "inventario": 15
+    },
+    {
+      "sku": "000003",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000003",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000005",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000006",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000007",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000008",
+      "inventario": 15,
+      "tiempo": 5
+    },
+    {
+      "sku": "000009",
+      "inventario": 0,
+      "tiempo": 5
+    },
+    {
+      "sku": "000010",
+      "inventario": 0,
+      "tiempo": 5
+    },
+    {
+      "sku": "000011",
+      "inventario": 0,
+      "tiempo": 5
+    }
+  ]
+}
