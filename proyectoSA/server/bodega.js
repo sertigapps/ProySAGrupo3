@@ -67,7 +67,14 @@ app.get('/Bodega/sincronizarInventario', (req, res) => {
                 if (error) {
                 return console.error('upload failed:', error);
                 }
-                console.log('Upload successful!  Server responded with:', JSON.stringify(body));
+                body.productos.forEach(function(o){
+                    let obj = { 'sku' : o.sku , 'inventario' : Math.floor(Math.random() * 9999) + 1};
+                    db.get('productos').push(obj).write();
+                });
+
+                let response2 = {"error":false};
+                res.set('Content-Type', 'application/json');
+                res.send(JSON.stringify(response2))
             });
         } else {
             let response = {"error":true};

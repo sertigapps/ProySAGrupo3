@@ -1,0 +1,12 @@
+{
+    "name": "test-project",
+    "version": "1.0.0",
+    "description": "A Vue.js project",
+    "dependencies": {
+        "express": "^4.16.4",
+        "fs": "0.0.1-security",
+        "jsonwebtoken": "^8.5.1",
+        "lowdb": "^1.0.0",
+        "request": "^2.88.0"
+    }
+}
