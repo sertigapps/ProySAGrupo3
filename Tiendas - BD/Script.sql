@@ -108,16 +108,3 @@ CREATE TABLE Detalle_Bodega(
 	FOREIGN KEY (cod_det_orden)
 		REFERENCES Detalle_Orden(cod_det_orden)
 );
-
---Borrar
---DROP TABLE Detalle_Bodega;
---DROP TABLE Detalle_Orden;
---DROP TABLE Orden;
---DROP TABLE Estado; 
---DROP TABLE Cliente; 
---DROP TABLE Imagen;
---DROP TABLE Categoria_Producto;
---DROP TABLE Categoria;
---DROP TABLE Producto;
---DROP TABLE Bodega;
---DROP TABLE Tienda;
