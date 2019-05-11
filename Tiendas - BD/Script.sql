@@ -102,6 +102,7 @@ CREATE TABLE Detalle_Orden(
 CREATE TABLE Detalle_Bodega( 
 	cod_det_orden  INT NOT NULL,
 	cod_bodega INT NOT NULL,
+	fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (cod_det_orden, cod_bodega), 
 	FOREIGN KEY(cod_bodega)
 		REFERENCES Bodega(cod_bodega), 
