@@ -51,6 +51,31 @@ app.get('/Bodega/obtenerInventario', (req, res) => {
         }
     })
 });
+app.get('/Bodega/sincronizarInventario', (req, res) => {
+    validateToken(req,function(valid){
+        if ( valid ) {
+            var request = require('request');
+            var body = new Object();
+
+            request({
+                method: 'GET',
+                preambleCRLF: true,
+                postambleCRLF: true,
+                uri: 'http://104.196.174.209/PIM/obtenerCatalogo',
+                json: true
+            },function (error, response, body) {
+                if (error) {
+                return console.error('upload failed:', error);
+                }
+                console.log('Upload successful!  Server responded with:', JSON.stringify(body));
+            });
+        } else {
+            let response = {"error":true};
+            res.set('Content-Type', 'application/json');
+            res.send(JSON.stringify(response))
+        }
+    })
+});
 app.post('/Bodega/realizarDespacho', (req, res) => {
     validateToken(req,function(valid){
         let periodo = Math.floor(Math.random() * 4) + 1;
