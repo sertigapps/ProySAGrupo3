@@ -1,7 +1,7 @@
 /**** Script SQL de Proyecto Software Avanzado ****/
 
 CREATE TABLE Tienda(
-	cod_tienda INT AUTO_INCREMENT,
+	cod_tienda INT,
 	nombre VARCHAR(50) NOT NULL,
 	pais VARCHAR(25) NOT NULL,
 	nodo VARCHAR(50) NOT NULL,
@@ -35,9 +35,9 @@ CREATE TABLE Producto(
 );
 
 CREATE TABLE Categoria(
-	cod_categoria INT AUTO_INCREMENT,
+	cod_categoria INT,
 	nombre VARCHAR(50) NOT NULL,
-	padre INT NOT NULL,
+	padre INT NULL,
 	PRIMARY KEY (cod_categoria)
 );
 
